@@ -19,9 +19,8 @@ fi
 #######################################################################################
 # Oh-My-ZSH theme and fonts
 #######################################################################################
-export ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
-
 mkdir -p $HOME/.oh-my-zsh-custom
+export ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 
 if [ ! -d "${ZSH_CUSTOM}/plugins/powerlevel10k" ]; then
   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM}/themes/powerlevel10k
@@ -138,6 +137,9 @@ echo "Setting some Mac settings..."
 sudo spctl --master-disable
 sudo defaults write /var/db/SystemPolicy-prefs.plist enabled -string no
 defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+# Setup iterm font
+/usr/libexec/PlistBuddy -c "Set :\"New Bookmarks\":0:\"Normal Font\" \"MesloLGS-NF-Regular 13\""  ~/Library/Preferences/com.googlecode.iterm2.plist
 
 #"Saving to disk (not to iCloud) by default"
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
