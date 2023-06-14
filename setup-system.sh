@@ -11,8 +11,10 @@ fi
 #######################################################################################
 # Oh-My-ZSH
 #######################################################################################
-echo "Installing Oh My ZSH..."
-curl -L http://install.ohmyz.sh | sh
+if [ ! -d "${HOME}/.oh-my-zsh" ]; then
+  echo "Installing Oh My ZSH..."
+  curl -L http://install.ohmyz.sh | sh
+fi
 
 #######################################################################################
 # Oh-My-ZSH theme and fonts
