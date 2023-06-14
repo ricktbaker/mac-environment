@@ -68,6 +68,7 @@ forumulas=(
   asdf
   gh
   git
+  iterm2
 )
 
 # Install forumulas
