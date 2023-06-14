@@ -124,7 +124,7 @@ mkdir -p $HOME/Work/general
 if [ ! -d "${HOME}/Work/general/mac-environment" ]; then
   git clone git@github.com:ricktbaker/mac-environment.git ${HOME}/Work/general/mac-environment
 fi
-cd $HOME/general/mac-environment && git pull
+cd $HOME/Work/general/mac-environment && git pull
 bash $HOME/Work/general/mac-environment/setup-dotfiles.sh
 
 
