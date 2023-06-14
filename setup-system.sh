@@ -22,7 +22,7 @@ fi
 mkdir -p $HOME/.oh-my-zsh-custom
 export ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 
-if [ ! -d "${ZSH_CUSTOM}/plugins/powerlevel10k" ]; then
+if [ ! -d "${ZSH_CUSTOM}/themes/powerlevel10k" ]; then
   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM}/themes/powerlevel10k
 fi
 if [ ! -d "${ZSH_CUSTOM}/plugins/zsh-syntax-highlighting" ]; then
@@ -120,8 +120,8 @@ git config --global user.email "rick.todd.baker@gmail.com"
 # The rest of the setup including dotfiles
 #######################################################################################
 mkdir -p ~/Work/general
-if [ ! -d "~/Work/general/mac-environment" ]; then
-  git clone git@github.com:ricktbaker/mac-environment.git ~/Work/general/mac-environment
+if [ ! -d "${HOME}/Work/general/mac-environment" ]; then
+  git clone git@github.com:ricktbaker/mac-environment.git ${HOME}/Work/general/mac-environment
 fi
 git pull
 bash ~/Work/general/mac-environment/setup-dotfiles.sh
