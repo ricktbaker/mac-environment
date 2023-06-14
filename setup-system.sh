@@ -3,8 +3,10 @@
 #######################################################################################
 # XCODE
 #######################################################################################
-echo "Installing xcode-stuff"
-xcode-select --install
+if test ! $(xcode-select -p); then
+  echo "Installing xcode-select"
+  xcode-select --install
+fi
 
 #######################################################################################
 # Oh-My-ZSH
@@ -20,9 +22,17 @@ chsh -s /bin/zsh
 #######################################################################################
 export ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+mkdir -p $HOME/.oh-my-zsh-custom
+
+if [ ! -d "{ZSH_CUSTOM}/plugins/zsh-syntax-highlighting" ]; then
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM}/themes/powerlevel10k
+fi
+if [ ! -d "{ZSH_CUSTOM}/plugins/zsh-syntax-highlighting" ]; then
+  git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM}/plugins/zsh-syntax-highlighting
+fi
+if [ ! -d "${ZSH_CUSTOM}/plugins/zsh-autosuggestions" ]; then
+  git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM}/plugins/zsh-autosuggestions
+fi
 
 fonts_list=(
   font-meslo-lg-nerd-font
@@ -32,7 +42,11 @@ brew tap homebrew/cask-fonts
 
 for font in "${fonts_list[@]}"
 do
-  brew install --cask "$font"
+  if brew list $font --cask &>/dev/null; then
+    echo "${font} is already installed"
+  else
+    brew install --cask $font
+  fi
 done
 
 #######################################################################################
@@ -60,7 +74,14 @@ forumulas=(
 
 # Install forumulas
 echo "installing brew formulas.."
-brew install ${forumulas[@]}
+for formula in "${formulas[@]}"
+do
+  if brew list $forumula &>/dev/null; then
+    echo "${formula} is already installed"
+  else
+    brew install $formula
+  fi
+done
 
 echo "Cleaning up brew"
 brew cleanup
@@ -78,7 +99,14 @@ apps=(
 )
 
 echo "installing brew apps with Cask..."
-brew install --appdir="/Applications" --cask ${apps[@]}
+for app in "${apps[@]}"
+do
+  if brew list $app &>/dev/null; then
+    echo "${app} is already installed"
+  else
+    brew install --appdir="/Applications" --cask $app
+  fi
+done
 
 brew cleanup
 
