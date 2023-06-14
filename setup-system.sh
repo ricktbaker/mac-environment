@@ -98,6 +98,7 @@ if [ ! -d "~/Work/general/mac-environment" ]; then
   git clone https://github.com/ricktbaker/mac-environment.git
 fi
 git pull
+~/Work/general/mac-environment/setup-dotfiles.sh
 
 
 #######################################################################################
