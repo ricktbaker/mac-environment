@@ -95,7 +95,7 @@ git config --global user.email "rick.todd.baker@gmail.com"
 #######################################################################################
 mkdir -p ~/Work/general
 if [ ! -d "~/Work/general/mac-environment" ]; then
-  git clone https://github.com/ricktbaker/mac-environment.git
+  git clone git@github.com:ricktbaker/mac-environment.git ~/Work/general/mac-environment
 fi
 git pull
 cd ~/Work/general/mac-environment && setup-dotfiles.sh
