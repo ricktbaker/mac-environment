@@ -14,9 +14,6 @@ fi
 echo "Installing Oh My ZSH..."
 curl -L http://install.ohmyz.sh | sh
 
-echo "Setting ZSH as shell..."
-chsh -s /bin/zsh
-
 #######################################################################################
 # Oh-My-ZSH theme and fonts
 #######################################################################################
@@ -24,10 +21,10 @@ export ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 
 mkdir -p $HOME/.oh-my-zsh-custom
 
-if [ ! -d "{ZSH_CUSTOM}/plugins/zsh-syntax-highlighting" ]; then
+if [ ! -d "${ZSH_CUSTOM}/plugins/powerlevel10k" ]; then
   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM}/themes/powerlevel10k
 fi
-if [ ! -d "{ZSH_CUSTOM}/plugins/zsh-syntax-highlighting" ]; then
+if [ ! -d "${ZSH_CUSTOM}/plugins/zsh-syntax-highlighting" ]; then
   git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM}/plugins/zsh-syntax-highlighting
 fi
 if [ ! -d "${ZSH_CUSTOM}/plugins/zsh-autosuggestions" ]; then
@@ -126,7 +123,7 @@ if [ ! -d "~/Work/general/mac-environment" ]; then
   git clone git@github.com:ricktbaker/mac-environment.git ~/Work/general/mac-environment
 fi
 git pull
-cd ~/Work/general/mac-environment && setup-dotfiles.sh
+bash ~/Work/general/mac-environment/setup-dotfiles.sh
 
 
 #######################################################################################
