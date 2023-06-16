@@ -80,7 +80,7 @@ echo "installing brew formulas.."
 for formula in "${formulas[@]}"
 do
   if brew list $forumula &>/dev/null; then
-    brew upgrade $formula
+    "${formula} already isntalled"
   else
     brew install $formula
   fi
@@ -105,7 +105,7 @@ echo "installing brew apps with Cask..."
 for app in "${apps[@]}"
 do
   if brew list $app &>/dev/null; then
-    brew upgrade $app
+    "${app} already isntalled"
   else
     brew install --appdir="/Applications" --cask $app
   fi
@@ -125,6 +125,7 @@ asdf_plugins=(
 echo "installing brew apps with Cask..."
 for asdf_plugin in "${asdf_plugins[@]}"
 do
+  echo $asdf_plugin
   asdf plugin-add $asdf_plugin
 done
 
