@@ -117,9 +117,9 @@ brew cleanup
 # ASDF Plugins
 #######################################################################################
 asdf_plugins=(
-  kubectl
-  helm
-  terraform
+  kubectl https://github.com/asdf-community/asdf-kubectl.git
+  helm https://github.com/Antiarchitect/asdf-helm.git
+  terraform https://github.com/asdf-community/asdf-hashicorp.git
 )
 
 echo "installing brew apps with Cask..."
