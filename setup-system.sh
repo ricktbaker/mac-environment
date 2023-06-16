@@ -125,7 +125,7 @@ asdf_plugins=(
 echo "installing brew apps with Cask..."
 for asdf_plugin in "${asdf_plugins[@]}"
 do
-  asdf install $asdf_plugin
+  asdf plugin-add $asdf_plugin
 done
 
 #######################################################################################
