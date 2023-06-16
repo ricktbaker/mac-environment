@@ -105,7 +105,7 @@ echo "installing brew apps with Cask..."
 for app in "${apps[@]}"
 do
   if brew list $app &>/dev/null; then
-    "${app} already isntalled"
+    echo "${app} already isntalled"
   else
     brew install --appdir="/Applications" --cask $app
   fi
@@ -117,15 +117,14 @@ brew cleanup
 # ASDF Plugins
 #######################################################################################
 asdf_plugins=(
-  kubectl https://github.com/asdf-community/asdf-kubectl.git
-  helm https://github.com/Antiarchitect/asdf-helm.git
-  terraform https://github.com/asdf-community/asdf-hashicorp.git
+  "kubectl https://github.com/asdf-community/asdf-kubectl.git"
+  "helm https://github.com/Antiarchitect/asdf-helm.git"
+  "terraform https://github.com/asdf-community/asdf-hashicorp.git"
 )
 
 echo "installing brew apps with Cask..."
 for asdf_plugin in "${asdf_plugins[@]}"
 do
-  echo $asdf_plugin
   asdf plugin-add $asdf_plugin
 done
 

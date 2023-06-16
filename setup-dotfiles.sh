@@ -1,15 +1,10 @@
 #!/usr/bin/env bash
 
 # General settings for all environments
-if [ ! -d "~/.tool-versions" ]; then
-  ln -s ~/Work/general/mac-environment/dotfiles/global/.tool-versions ~/.tool-versions
-fi
-if [ ! -d "~/.p10k.zsh" ]; then
-  ln -s ~/Work/general/mac-environment/dotfiles/global/p10k.zsh ~/.p10k.zsh 
-fi
-if [ ! -d "~/.zshrc" ]; then
-  ln -s ~/Work/general/mac-environment/dotfiles/global/zshrc ~/.zshrc 
-fi
+ln -s ~/Work/general/mac-environment/dotfiles/global/.tool-versions ~/.tool-versions
+ln -s ~/Work/general/mac-environment/dotfiles/global/p10k.zsh ~/.p10k.zsh 
+#ln -s ~/Work/general/mac-environment/dotfiles/global/oh-my-zsh-custom ~/.oh-my-zsh-custom
+ln -s ~/Work/general/mac-environment/dotfiles/global/zshrc ~/.zshrc 
 
 COMPUTER_NAME=$(scutil --get ComputerName)
 if [[ $COMPUTER_NAME -eq "forta" ]]; then
