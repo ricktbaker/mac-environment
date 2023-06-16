@@ -20,6 +20,8 @@ fi
 # Oh-My-ZSH theme and fonts
 #######################################################################################
 mkdir -p $HOME/.oh-my-zsh-custom
+mkdir -p $HOME/.oh-my-zsh-custom/themes
+mkdir -p $HOME/.oh-my-zsh-custom/plugins
 export ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 
 if [ ! -d "${ZSH_CUSTOM}/themes/powerlevel10k" ]; then
