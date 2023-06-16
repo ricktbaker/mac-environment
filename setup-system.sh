@@ -80,7 +80,7 @@ echo "installing brew formulas.."
 for formula in "${formulas[@]}"
 do
   if brew list $forumula &>/dev/null; then
-    "${formula} already isntalled"
+    echo "${formula} already installed"
   else
     brew install $formula
   fi
@@ -105,7 +105,7 @@ echo "installing brew apps with Cask..."
 for app in "${apps[@]}"
 do
   if brew list $app &>/dev/null; then
-    echo "${app} already isntalled"
+    echo "${app} already installed"
   else
     brew install --appdir="/Applications" --cask $app
   fi
