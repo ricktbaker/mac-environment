@@ -114,14 +114,14 @@ brew cleanup
 #######################################################################################
 # ASDF Plugins
 #######################################################################################
-asdf-plugins=(
+asdf_plugins=(
   helm https://github.com/Antiarchitect/asdf-helm.git
   kubectl https://github.com/asdf-community/asdf-kubectl.git
   terraform https://github.com/asdf-community/asdf-hashicorp.git
 )
 
 echo "installing ASDF Plugins..."
-for plugin in "${asdf-plugins[@]}"
+for plugin in "${asdf_plugins[@]}"
   asdf plugin-add $plugin
   asdf plugin-update $plugin
 done
@@ -129,14 +129,14 @@ done
 #######################################################################################
 # ASDF Plugin Versions
 #######################################################################################
-asdf-plugin-versions=(
+asdf_plugin_versions=(
   helm 3.11.3
   kubectl 1.23.17
   terraform 1.4.6
 )
 
 echo "installing ASDF Plugin Versions..."
-for version in "${asdf-plugin-versions[@]}"
+for version in "${asdf_plugin_versions[@]}"
   asdf install $plugin
 done
 
