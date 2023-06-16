@@ -135,6 +135,7 @@ echo "Git config"
 
 git config --global user.name "Rick Baker"
 git config --global user.email "rick.todd.baker@gmail.com"
+git config pull.rebase true
 
 #######################################################################################
 # The rest of the setup including dotfiles
