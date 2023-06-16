@@ -3,7 +3,7 @@
 # General settings for all environments
 ln -s ~/Work/general/mac-environment/dotfiles/global/.tool-versions ~/.tool-versions
 ln -s ~/Work/general/mac-environment/dotfiles/global/p10k.zsh ~/.p10k.zsh 
-ln -s ~/Work/general/mac-environment/dotfiles/global/oh-my-zsh-custom ~/.oh-my-zsh-custom
+#ln -s ~/Work/general/mac-environment/dotfiles/global/oh-my-zsh-custom ~/.oh-my-zsh-custom
 ln -s ~/Work/general/mac-environment/dotfiles/global/zshrc ~/.zshrc 
 
 COMPUTER_NAME=$(scutil --get ComputerName)
