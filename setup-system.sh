@@ -66,6 +66,8 @@ brew update
 #######################################################################################
 forumulas=(
   asdf
+  awscli
+  chamber
   gh
   git
   iterm2
@@ -76,7 +78,7 @@ echo "installing brew formulas.."
 for formula in "${formulas[@]}"
 do
   if brew list $forumula &>/dev/null; then
-    echo "${formula} is already installed"
+    brew upgrade $formula
   else
     brew install $formula
   fi
@@ -101,13 +103,42 @@ echo "installing brew apps with Cask..."
 for app in "${apps[@]}"
 do
   if brew list $app &>/dev/null; then
-    echo "${app} is already installed"
+    brew upgrade $app
   else
     brew install --appdir="/Applications" --cask $app
   fi
 done
 
 brew cleanup
+
+#######################################################################################
+# ASDF Plugins
+#######################################################################################
+asdf-plugins=(
+  helm https://github.com/Antiarchitect/asdf-helm.git
+  kubectl https://github.com/asdf-community/asdf-kubectl.git
+  terraform https://github.com/asdf-community/asdf-hashicorp.git
+)
+
+echo "installing ASDF Plugins..."
+for plugin in "${asdf-plugins[@]}"
+  asdf plugin-add $plugin
+  asdf plugin-update $plugin
+done
+
+#######################################################################################
+# ASDF Plugin Versions
+#######################################################################################
+asdf-plugin-versions=(
+  helm 3.11.3
+  kubectl 1.23.17
+  terraform 1.4.6
+)
+
+echo "installing ASDF Plugin Versions..."
+for version in "${asdf-plugin-versions[@]}"
+  asdf install $plugin
+done
 
 #######################################################################################
 # Git Config
